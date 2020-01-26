@@ -2,11 +2,6 @@
 
 cp tmpl/server.tmpl ${TMPL_PATH}"server.tmpl"
 
-# 获取公网IP并写入server模板
-PUBLIC_IP=`wget http://ipecho.net/plain -O - -q ; echo`
-CN="cn\ =\ \"${PUBLIC_IP}\""
-sed -i '1i\'"${CN}" ${TMPL_PATH}"server.tmpl"
-
 # 生成server的私钥
 certtool \
 	--generate-privkey \
